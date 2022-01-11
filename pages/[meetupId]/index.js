@@ -19,13 +19,14 @@ export async function getStaticPaths() {
 	const db = client.db();
 	const meetupsCollection = db.collection('meetups');
 	const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
-	// client.close();
+	client.close();
+
 	return {
-		fallback: false,
+		// this will generate the page on demand and after caching
+		fallback: 'blocking',
 		paths: meetups.map(({ _id }) => ({ params: { meetupId: _id.toString() } }))
 	}
 }
-
 
 // the context argument allows us to get the url params
 export async function getStaticProps(context) {

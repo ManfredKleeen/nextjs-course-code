@@ -42,7 +42,20 @@ export async function getStaticProps() {
 	}
 }
 
-// will run on the server after deployment
+// const MOCK_MEETUPS = [{
+// 	address: 'C.R. San José, Coronado',
+// 	id: '1',
+// 	image: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/TemploParroquialdeSanIsidroCoronado.JPG',
+// 	title: 'First one',
+// }, {
+// 	address: 'C.R. Heredia, Sarapiquí, La Virgen',
+// 	id: '2',
+// 	image: 'https://sarapiquisostenible.com/wp-content/uploads/2018/09/hacienda-pozo-azul.jpg',
+// 	title: 'Welcome to the jungle!',
+// }]
+
+
+// // will run on the server after deployment
 // export async function getServerSideProps(context) {
 // 	const { req, res } = context;
 // 	return {
