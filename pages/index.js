@@ -23,7 +23,33 @@ export default function HomePage(props) {
 	getStaticProps: is faster since will generate a page that will be cached
 */
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+// 	const client = await MongoClient.connect('mongodb+srv://manfredKleeen:testnext@cluster0.eirs1.mongodb.net/meetups?retryWrites=true&w=majority');
+// 	const db = client.db();
+// 	const meetupsCollection = db.collection('meetups');
+// 	const meetups = await meetupsCollection.find().toArray();
+
+// 	client.close();
+// 	return {
+// 		props: {
+// 			meetups: meetups.map(({ title, address, image, _id }) => ({
+// 				address, image, title, id: _id.toString()
+// 			}))
+// 		},
+// 		revalidate: 1
+// 	}
+// }
+
+
+// will run on the server after deployment
+export async function getServerSideProps(context) {
+	// const { req, res } = context;
+	// return {
+	// 	props: {
+	// 		meetups: MOCK_MEETUPS,
+	// 	},
+	// }
+
 	const client = await MongoClient.connect('mongodb+srv://manfredKleeen:testnext@cluster0.eirs1.mongodb.net/meetups?retryWrites=true&w=majority');
 	const db = client.db();
 	const meetupsCollection = db.collection('meetups');
@@ -39,27 +65,4 @@ export async function getStaticProps() {
 		revalidate: 1
 	}
 }
-
-// const MOCK_MEETUPS = [{
-// 	address: 'C.R. San José, Coronado',
-// 	id: '1',
-// 	image: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/TemploParroquialdeSanIsidroCoronado.JPG',
-// 	title: 'First one',
-// }, {
-// 	address: 'C.R. Heredia, Sarapiquí, La Virgen',
-// 	id: '2',
-// 	image: 'https://sarapiquisostenible.com/wp-content/uploads/2018/09/hacienda-pozo-azul.jpg',
-// 	title: 'Welcome to the jungle!',
-// }]
-
-
-// // will run on the server after deployment
-// export async function getServerSideProps(context) {
-// 	const { req, res } = context;
-// 	return {
-// 		props: {
-// 			meetups: MOCK_MEETUPS,
-// 		},
-// 	}
-// }
 
