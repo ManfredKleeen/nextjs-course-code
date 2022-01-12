@@ -23,7 +23,6 @@ function MeetupItem(props) {
   );
 
   function showDetailsHandler() {
-    console.log('props.id: ', props.id);
     router.push(`/${props.id}`)
   }
 }
