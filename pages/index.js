@@ -61,8 +61,7 @@ export async function getServerSideProps(context) {
 			meetups: meetups.map(({ title, address, image, _id }) => ({
 				address, image, title, id: _id.toString()
 			}))
-		},
-		revalidate: 1
+		}
 	}
 }
 
