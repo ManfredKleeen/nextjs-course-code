@@ -1,4 +1,6 @@
+import { Button } from './emotion-button'
 import Card from '../ui/Card';
+import { Paper } from '@mui/material';
 import classes from './NewMeetupForm.module.css';
 import { useRef } from 'react';
 
@@ -27,7 +29,7 @@ function NewMeetupForm(props) {
   }
 
   return (
-    <Card>
+    <Paper>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor='title'>Meetup Title</label>
@@ -51,10 +53,12 @@ function NewMeetupForm(props) {
           ></textarea>
         </div>
         <div className={classes.actions}>
-          <button>Add Meetup</button>
+          {/* <button>Add Meetup</button> */}
+          <Button>Add Meetup</Button>
+
         </div>
       </form>
-    </Card>
+    </Paper>
   );
 }
 

@@ -1,12 +1,13 @@
 import MainNavigation from './MainNavigation';
+import { Paper } from '@mui/material';
 import classes from './Layout.module.css';
 
 function Layout(props) {
   return (
-    <div>
+    <Paper>
       <MainNavigation />
       <main className={classes.main}>{props.children}</main>
-    </div>
+    </Paper>
   );
 }
 
